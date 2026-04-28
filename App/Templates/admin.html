@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #34495e; color: white; }
+    </style>
+</head>
+<body>
+    <h1>All Complaints</h1>
+    <a href="{{ url_for('logout') }}">Logout</a> | <a href="/">Go to Form</a>
+    <hr>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Room</th>
+            <th>Issue</th>
+            <th>Date</th>
+        </tr>
+        {% for c in complaints %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.room }}</td>
+            <td>{{ c.issue }}</td>
+            <td>{{ c.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
